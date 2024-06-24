@@ -37,13 +37,13 @@ export default function RefundTableRow({
 
   return (
     <>
-      <TableRow hover tabIndex={-1} role="checkbox" selected={selected} onClick={handleDetail}>
+      <TableRow hover tabIndex={-1} role="checkbox" selected={selected}>
         
         <TableCell padding="checkbox">
           <Checkbox disableRipple checked={selected} onChange={handleClick} />
         </TableCell>
 
-        <TableCell component="th" scope="row" padding="none">
+        <TableCell component="th" scope="row" padding="none" onClick={handleDetail}>
           <Stack direction="row" alignItems="center" spacing={2}>
             <Typography variant="subtitle2" noWrap>
               {orderNum}
@@ -52,31 +52,31 @@ export default function RefundTableRow({
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {userName}
           </Typography> 
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {totalAmount}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {bonus}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {payway}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {payStatus}
           </Typography>
         </TableCell>

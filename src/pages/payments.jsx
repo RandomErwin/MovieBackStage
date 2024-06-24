@@ -8,7 +8,7 @@ export default function PaymentsPage() {
   return (
     <>
       <Helmet>
-        <title> 購買記錄 | Minimal UI </title>
+        <title> 購買記錄 | TaiShow </title>
       </Helmet>
 
       <PaymentsView />

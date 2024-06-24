@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import { Helmet } from 'react-helmet-async';
 import axios from 'axios'
 import './loginpage.css'
 
-const loginURL = 'http://localhost:8080/login';
 const LgoinPage = () => {
+  const loginURL = 'http://localhost:8080/login';
   const[account, setAccount] = useState('')
   const[passwd, setPasswd] = useState('')
 
@@ -39,7 +40,10 @@ const LgoinPage = () => {
   }
 
   return (
-    <section>
+    <section className='section-style'>
+      <Helmet>
+        <title> 員工登入 | TaiShow </title>
+      </Helmet>
       <form method='post' className='login-box'>
         <h2 className='login-signin'>員工登入</h2>
         <div className='input-box'>

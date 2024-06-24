@@ -4,11 +4,11 @@ import { UsersView } from 'src/sections/users/view';
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function UsersPage() {
   return (
     <>
       <Helmet>
-        <title> 會員資料 | Minimal UI </title>
+        <title> 會員列表 | Taishow </title>
       </Helmet>
 
       <UsersView />

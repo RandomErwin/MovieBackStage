@@ -9,6 +9,7 @@ import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Iconify from 'src/components/iconify';
+import axios from 'axios';
 
 // 傳遞參數(id, orderNum, ...) 
 export default function PaymentTableRow({
@@ -28,23 +29,29 @@ export default function PaymentTableRow({
     setOpen(event.currentTarget);
   };
 
-  const handleCloseMenu = () => {
+  
+  const handleCloseMenu = async () => {
     setOpen(null);
+    // 處理退款API
+    const refundURL = 'http://localhost:8080/payments/insertPayment';
+    const data = await axios.post(`${refundURL}/${orderNum}`);
+    console.log(data);
   };
 
   const handleDetail = (event) => {
+    console.log(orderNum);
     onRowClick(orderNum); //直接拿到orderNum => onRowClick接收參數
   }
   // 控制點 onclick={} 在子層<TableRow onClick={handleDetail}> 
   return (
     <>
-      <TableRow hover tabIndex={-1} role="checkbox" selected={selected} onClick={handleDetail}>
+      <TableRow hover tabIndex={-1} role="checkbox" selected={selected}>
 
         <TableCell padding="checkbox">
           <Checkbox disableRipple checked={selected} onChange={handleClick} />
         </TableCell>
 
-        <TableCell component="th" scope="row" padding="none">
+        <TableCell component="th" scope="row" padding="none" onClick={handleDetail}>
           <Stack direction="row" alignItems="center" spacing={2}>
             <Typography variant="subtitle2" noWrap>
               {orderNum}
@@ -53,31 +60,31 @@ export default function PaymentTableRow({
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {userName}
           </Typography> 
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {totalAmount}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {bonus}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {payway}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2" noWrap>
+          <Typography variant="subtitle2" noWrap onClick={handleDetail}>
             {payStatus}
           </Typography>
         </TableCell>
@@ -101,13 +108,9 @@ export default function PaymentTableRow({
       >
         <MenuItem onClick={handleCloseMenu}>
           <Iconify icon="eva:edit-fill" sx={{ mr: 2 }} />
-          Edit
+          退款
         </MenuItem>
 
-        <MenuItem onClick={handleCloseMenu} sx={{ color: 'error.main' }}>
-          <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
-          Delete
-        </MenuItem>
       </Popover>
     </>
   );

@@ -8,7 +8,7 @@ export default function RefundsPage() {
   return (
     <>
       <Helmet>
-        <title> 退款記錄 | Minimal UI </title>
+        <title> 退款記錄 | TaiShow </title>
       </Helmet>
 
       <RefundsView />

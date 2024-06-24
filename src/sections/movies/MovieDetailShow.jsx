@@ -1,8 +1,9 @@
 import { Modal, Box, Typography, Grid, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { alpha } from '@mui/material/styles';
 import axios from 'axios';
 
-const style = {
+const style = (theme) => ({
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -10,7 +11,7 @@ const style = {
     width: 650,
     maxHeight: 650,
     overflowY: 'auto',
-    bgcolor: 'background.paper',
+    bgcolor: alpha(theme.palette.background.paper, 0.7),
     boxShadow: 24,
     p: 4,
     color: '#FF5809',
@@ -33,7 +34,7 @@ const style = {
     '&::-webkit-scrollbar-track': {
       boxShadow: 'transparent',
     },
-};
+});
 
 const MovieDetailShow = ({ show, onHide, data}) => {
     const putURL = 'http://localhost:8080/movie/updateMovie';

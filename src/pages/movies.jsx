@@ -6,7 +6,7 @@ export default function MoviesPage() {
   return (
     <>
       <Helmet>
-        <title> 院線更新 | Minimal UI </title>
+        <title> 院線更新 | TaiShow </title>
       </Helmet>
 
       <MoviesView />

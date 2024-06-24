@@ -8,7 +8,7 @@ export default function BonusPage() {
   return (
     <>
       <Helmet>
-        <title> 紅利點數 | Minimal UI </title>
+        <title> 紅利點數 | TaiShow </title>
       </Helmet>
 
       <BonusView />

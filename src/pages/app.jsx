@@ -8,7 +8,7 @@ export default function AppPage() {
   return (
     <>
       <Helmet>
-        <title> 首頁 </title>
+        <title> 首頁 | TaiShow </title>
       </Helmet>
 
       <AppView />

@@ -26,7 +26,8 @@ export default function UsersPage() {
   const [selected, setSelected] = useState([]);
   const [orderBy, setOrderBy] = useState('name');
   const [filterName, setFilterName] = useState('');
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -168,7 +169,7 @@ export default function UsersPage() {
           count={userData.length}
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[10, 25, 50, 100]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Card>

@@ -13,23 +13,24 @@ export const ReviewsPage = lazy(() => import('src/pages/reviews'));
 
 export default function Router() {
   const routes = useRoutes([
+    { path: 'login', element: <LgoinPage />},
     {
-        element: (
+      element: (
           <DashboardLayout>
             <Suspense>
               <Outlet />
             </Suspense>
-          </DashboardLayout>
-        ),
-        children: [
-          { element: <LgoinPage />, index: true },
-          { path: 'movies', element: <MoviesPage /> },
-          { path: 'users', element: <UsersPage /> },
-          { path: 'bonus', element: <BonusPage /> },
-          { path: 'payments', element: <PaymentsPage /> },
-          { path: 'refunds', element: <RefundsPage /> },
-          { path: 'reviews', element: <ReviewsPage /> },
-        ],  
+          </DashboardLayout> 
+      ),
+      children: [
+        { element: <MoviesPage />, index: true },
+        { path: 'movies', element: <MoviesPage /> },
+        { path: 'users', element: <UsersPage /> },
+        { path: 'bonus', element: <BonusPage /> },
+        { path: 'payments', element: <PaymentsPage /> },
+        { path: 'refunds', element: <RefundsPage /> },
+        { path: 'reviews', element: <ReviewsPage /> },
+      ],  
     },
   ]);
 
