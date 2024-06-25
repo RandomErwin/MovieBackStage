@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Outlet, useRoutes } from 'react-router-dom';
+import { Navigate, Outlet, useRoutes } from 'react-router-dom';
 import DashboardLayout from 'src/layouts/dashboard';
 
 export const LgoinPage = lazy(() => import('src/pages/login'));
@@ -13,7 +13,17 @@ export const ReviewsPage = lazy(() => import('src/pages/reviews'));
 
 export default function Router() {
   const routes = useRoutes([
-    { path: 'login', element: <LgoinPage />},
+    { 
+      path: '/', element: <Navigate to="/login" />,
+    },
+    { 
+      path: '/login', 
+      element:  (
+        <Suspense>
+          <LgoinPage />
+        </Suspense>
+      ),
+    },
     {
       element: (
           <DashboardLayout>
@@ -23,7 +33,6 @@ export default function Router() {
           </DashboardLayout> 
       ),
       children: [
-        { element: <MoviesPage />, index: true },
         { path: 'movies', element: <MoviesPage /> },
         { path: 'users', element: <UsersPage /> },
         { path: 'bonus', element: <BonusPage /> },

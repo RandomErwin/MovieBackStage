@@ -15,7 +15,6 @@ const LgoinPage = () => {
     setPasswd(e.target.value)
   }
 
-  // email:資料表欄位名稱 <= email:前端變數名稱
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,9 +22,6 @@ const LgoinPage = () => {
     formData.append('account', account);
     formData.append('passwd', passwd);
 
-    // Java => 挑到的圖片轉成文字 data uri => base64 => 檔案大小加1/3
-    // BLOB: Binary Large Object(長度: 255)
-    // CLOB: Character Large Object => 存劇本、小說、留言、轉換成文字的圖片
     axios.post(loginURL, formData, {
       headers:{
         'Content-Type': 'multipart/form-data'
@@ -66,8 +62,6 @@ const LgoinPage = () => {
       
       </form>
     </section>
-
-    
     
   )
 }
